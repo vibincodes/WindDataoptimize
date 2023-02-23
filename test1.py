@@ -33,15 +33,10 @@ value= pd.DataFrame(data)
 main_menu = ['Default']
 current_menu = st.sidebar.selectbox("--Select Config--", main_menu)
 config = value.loc[value['Name']==current_menu]
-import streamlit as st
 
-try:
-    data = st.file_uploader('Upload the file')
-    if uploaded_file is not None:
-        # process the uploaded file here
-        pass
-except:
-    st.warning("Upload your file.")
+
+
+data = st.file_uploader('Upload the file')
 
 check = cl(data,config)
 @st.cache
