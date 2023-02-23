@@ -34,8 +34,8 @@ main_menu = ['Default']
 current_menu = st.sidebar.selectbox("--Select Config--", main_menu)
 config = value.loc[value['Name']==current_menu]
 
-path = st.text_input('Enter the path')
-check = cl(path,config)
+data = st.file_uploader('Upload the file')
+check = cl(data,config)
 @st.cache
 def tests(check):
     check.missing_time()
