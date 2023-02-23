@@ -388,6 +388,12 @@ if st.sidebar.checkbox('Run all Tests'):
         st.plotly_chart(fig,config={'scrollZoom': True,'modeBarButtonsToRemove': ['toImage','zoom2d','zoomIn2d','select2d', 'lasso2d','zoomOut2d','pan2d','autoScale2d'],'showLink': False,'displaylogo': False})
         st.dataframe(count_df,use_container_width=True)
         st.dataframe(d)
+if test_type =='all':
+       df = wi.copy()
+       count = (d[flag_col]>0b1)
+       count_df = count.sum()
+       st.write('All Flagged Entries : ',len(d))
+       st.dataframe(count_df,use_container_width=True)
         
     if test_type =='Show Repeated Timestamps':
         a = repeated
