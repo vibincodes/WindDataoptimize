@@ -24,7 +24,7 @@ import glob
 class clean:
 
     def __init__(self,path,config):
-        self.wind =pd.read_csv(path,parse_dates=['Date/Time'], index_col=('Date/Time'))
+        self.wind =pd.read_csv(path,parse_dates=['Date/Time'],dayfirst = True, index_col=('Date/Time'))
         self.config = config
         self.wind_speed = []
         self.windspeed_std = []
