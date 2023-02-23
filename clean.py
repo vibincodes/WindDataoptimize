@@ -82,17 +82,29 @@ class clean:
                 
                 
             if ('°c' in col.lower() or 'temp' in col.lower()):
-                col_renamed = 'temperature_'+re.findall('\d+', col)[0]+'m'
+                match_list = re.findall('\d+', col)
+                if len(match_list)>0 :
+                    col_renamed = 'temperature_'+re.findall('\d+', col)[0]+'m'
+                else:
+                    col_renamed = 'temperature_'
                 self.wind = self.wind.rename(columns={col: col_renamed})
                 self.wind_temperature.append(col_renamed)
                 
             if 'mbar' in col.lower()or 'press' in col.lower():
-                col_renamed = 'pressure_'+re.findall('\d+', col)[0]+'m'
+                match_list = re.findall('\d+', col)
+                if len(match_list)>0 :
+                    col_renamed = 'pressure_'+re.findall('\d+', col)[0]+'m'
+                else:
+                    col_renamed = 'pressure_'
                 self.wind = self.wind.rename(columns={col: col_renamed})
                 self.wind_pressure.append(col_renamed)
                 
             if 'hum' in col.lower():
-                col_renamed ='humidity_'+re.findall('\d+', col)[0]+'m'
+                match_list = re.findall('\d+', col)
+                if len(match_list)>0 :
+                    col_renamed = 'humidity_'+re.findall('\d+', col)[0]+'m'
+                else:
+                    col_renamed = 'humidity_'
                 self.wind = self.wind.rename(columns={col:col_renamed })
                 self.wind_humidity.append(col_renamed)
                 
